@@ -21,53 +21,65 @@ const {user}=isAuthenticated()
             console.log(data)
         })
     },[])
-    
+    // Format date to yyyy-mm-dd
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
   return (
     <div>
         <Navbar/>
         <div className="container">
-      <h1>User Information</h1>
+      <h1><u>User Information:</u></h1>
       <div className="row">
         <div className="col-md-6">
-          <p>Name: {Userdetail.username}</p>
-          <p>Gender: {Userdetail.gender}</p>
-          <p>Email: {Userdetail.email}</p>
-          <p>Phone Number: {Userdetail.phone}</p>
-          <p>Address: {Userdetail.location}</p>
-          <p>Education:</p>
+          <h5>Name: {Userdetail.username}</h5>
+          <h5>Gender: {Userdetail.gender}</h5>
+          <h5>Email: {Userdetail.email}</h5>
+          <h5>Phone Number: {Userdetail.phone}</h5>
+          <h5>Address: {Userdetail.location}</h5>
+          <h4>Education:</h4>
           <ul>
             {detail && detail.map((item, index) => (
               <li key={index}>
                 <p>{item.school}</p>
                 <p>{item.degree}</p>
                 <p>
-                  {item.startDate} - {item.endDate}
+                  {formatDate(item.startDate)} to {formatDate(item.endDate)}
                 </p>
               </li>
             ))}
           </ul>
         </div>
         <div className="col-md-6">
-          <p>Skills:</p>
+          <h4>Skills:</h4>
           <ul>
             {Userdetail && Userdetail.skill && Userdetail.skill.map((item) => (
               <li key={item._id}>{item.skill}</li>
             ))}
           </ul> 
-          <p>Experience:</p>
+          <h4>Experience:</h4>
           <ul>
             {Userdetail && Userdetail.experience && Userdetail.experience.map((item, index) => (
                <li key={index}>
                 <p>{item.company}</p>
                 <p>{item.title}</p>
                 <p>
-                  {item.startDate} - {item.endDate}
+                  {formatDate(item.startDate)} to {formatDate(item.endDate)}
                 </p>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      {
+      user && user.role == 0 &&
+            <Link to={'/updateresume'}><button className='btn btn-success '>Update Resume Information</button></Link>
+              
+      }
     </div>
         {/* <button className='btn btn-success' onClick={(e)=>{
             e.preventDefault()
@@ -94,7 +106,8 @@ const {user}=isAuthenticated()
             {
                 Form && Form
             } */}
-            <Link to={'/updateresume'}><button className='btn btn-success'>Update Resume Information</button></Link>
+            
+      
     </div>
   )
 }

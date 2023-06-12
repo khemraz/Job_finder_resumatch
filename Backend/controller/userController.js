@@ -210,9 +210,13 @@ exports.signIn = async (req, res) => {
 
     }
     user = await User.findOne({email: email})
+    if(!user){
+        return res.status(400).json({ error: "user not registered" })
+    }
     //check password
     if (user.password!==password) {
         return res.status(400).json({ error: "email and password do not match" })
+
     }
     //user verified or not?
     if (!user.isVerified) {

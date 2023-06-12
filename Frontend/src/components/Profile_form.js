@@ -93,7 +93,14 @@ useEffect(()=>{
       navigate('/profile')
     }
   }
-
+// Format date to yyyy-mm-dd
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
   return (
     <>
     <Navbar/>
@@ -120,11 +127,11 @@ useEffect(()=>{
               
               <div className="col-md-3">
                 <label className="form-label">Start Date:</label>
-                <input type="date" className="form-control" value={edu.startDate} onChange={(event) => handleEducationChange(index, 'startDate', event.target.value)} />
+                <input type="date" className="form-control" value={formatDate(edu.startDate)} onChange={(event) => handleEducationChange(index, 'startDate', event.target.value)} />
               </div>
               <div className="col-md-3">
                 <label className="form-label">End Date:</label>
-                <input type="date" className="form-control" value={edu.endDate} onChange={(event) => handleEducationChange(index, 'endDate', event.target.value)} />
+                <input type="date" className="form-control" value={formatDate(edu.endDate)} onChange={(event) => handleEducationChange(index, 'endDate', event.target.value)} />
               </div>
             </div>
           </div>
@@ -146,11 +153,11 @@ useEffect(()=>{
             <div className="row">
               <div className="col-md-3">
                 <label className="form-label">Start Date:</label>
-                <input type="date" className="form-control" value={exp.startDate.Date} onChange={(event) => handleExperienceChange(index, 'startDate', event.target.value)} />
+                <input type="date" className="form-control" value={formatDate(exp.startDate)} onChange={(event) => handleExperienceChange(index, 'startDate', event.target.value)} />
               </div>
               <div className="col-md-3">
                 <label className="form-label">End Date:</label>
-                <input type="date" className="form-control" value={exp.endDate} onChange={(event) => handleExperienceChange(index, 'endDate', event.target.value)} />
+                <input type="date" className="form-control" value={formatDate(exp.endDate)} onChange={(event) => handleExperienceChange(index, 'endDate', event.target.value)} />
               </div>
               {/* <div className="col-md-6">
                 <label className="form-label">Description:</label>
@@ -175,7 +182,7 @@ useEffect(()=>{
        
       
     
-        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+        <button type="submit" className="btn btn-success" onClick={handleSubmit}>Submit</button>
       </form>
     </div>
     </>

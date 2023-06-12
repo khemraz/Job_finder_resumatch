@@ -15,6 +15,11 @@ import Form from './components/Profile_form'
 import JobPostingForm from './components/JobPostingForm'
 import About from './pages/About'
 import Service from './pages/Service'
+import AppliedUserList from './components/AppliedTable'
+import UserDetails from './components/UserDetails'
+import UserDashboard from './components/UserDashboard'
+import Search from './pages/Search'
+import UserRoute from './components/UserRoute'
 
 const Myroutes = () => {
   return (
@@ -22,27 +27,32 @@ const Myroutes = () => {
     <Routes>
 
     <Route path='/' element={<Home/>}/>
-
+    <Route path='/' element={<UserRoute/>}>
+    <Route path='profile' element={<Profile/>}/>
+    <Route path='updateresume' element={<Form/>}/>
+    <Route path='userdashboard' element={<UserDashboard/>}/>
+    </Route>
     <Route path='/login' element={<Login/>}/>
     <Route path='/signup' element={<Signup/>}/>
     <Route path='/register' element={<Register/>}/>
-    <Route path='/profile' element={<Profile/>}/>
+    
     <Route path='/emailverification/:token' element={<EmailConfirmation/>}/>
     <Route path='/companyemailverification/:token' element={<CompanyEmailConfirmation/>}/>
-    <Route path='/updateresume' element={<Form/>}/>
     
+    <Route path='/userdetails/:id' element={<UserDetails/>}/>
     <Route path='/about' element={<About/>}/>
     <Route path='/service' element={<Service/>}/>
-
+    
         {/* <Route path='/forgetpassword' element={<ForgetPassword/>}/>
         <Route path='/resetpassword/:token' element={<ResetPassword/>}/> */}
         
     <Route path='/jobgiver' element={<CompanyProfile/>}/>
     <Route path='/jobpost' element={<JobPostingForm/>}/>
 
-
+        {/* <Route path='/userbyjob/:jobId' element={<AppliedUserList/>}/> */}
      {/* //job */}
      <Route path='/jobdetails/:id' element={<JobDetails/>}/>
+     <Route path='/search/:search' element={<Search/>}/> 
     
     </Routes>
     <Footer/>

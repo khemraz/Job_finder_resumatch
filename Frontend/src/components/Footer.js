@@ -32,7 +32,7 @@ const Footer = () => {
     </div>
     
 
-    <div className="col mb-3">
+    {/* <div className="col mb-3">
       <h5>FOR JOBSEEKER</h5>
       <ul className="nav flex-column">
         <li className="nav-item mb-2"><Link to="/register" className="nav-link p-0 text-muted">REGISTER AS Jobgiver</Link></li>
@@ -41,7 +41,7 @@ const Footer = () => {
         <li className="nav-item mb-2"><Link to="/login" className="nav-link p-0 text-muted">LOGIN</Link></li>
        
       </ul>
-    </div>
+    </div> */}
 
     <div className="col mb-3">
       <h5>ABOUT US</h5>

@@ -2,6 +2,8 @@ import React, { useReducer, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { authenticate, isAuthenticated, login } from '../api/userAPI'
 import Navbar from '../components/Navbar'
+import image from '../45760194.jpg'
+
 
 const Login = () => {
     const userReducer=(state,event)=>{
@@ -45,7 +47,7 @@ const Login = () => {
           navigate('/')
         }
         else{
-            navigate('/')
+            navigate('/updateresume')
         }
         }
       }
@@ -61,27 +63,28 @@ const Login = () => {
                         <form>
                             <div className='text-center'>
                                 {/* <img className="mb-4" src="../images/logo.png" alt="" width="72" height="57" /> */}
+                                <img src={image} style={{height:"50px"}} className="me-2"/>
+                            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
                             </div>
-                            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
                             <div className="form-floating">
                                 <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"  name='email'onChange={setUserInfo}/>
                                 <label htmlFor="floatingInput">Email address</label>
                             </div>
                             <div className="form-floating">
-                                <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name='password' onChange={setUserInfo} />
+                                <input type="password" className="form-control mt-3" id="floatingPassword" placeholder="Password" name='password' onChange={setUserInfo} />
                                 <label htmlFor="floatingPassword">Password</label>
                             </div>
 
                             
                             
-                            <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={handleSubmit}>Sign in</button>
+                            <button className="w-25 mt-3 btn btn-lg btn-primary" type="submit" onClick={handleSubmit}>Sign in</button>
 
-                            <div className='d-flex justify-content-between'>
+                            {/* <div className='d-flex justify-content-between'>
                                 
                                 <Link to='/forgetpassword'>Forgot Password</Link>
-                            </div>
+                            </div> */}
 
                             <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
                         </form>

@@ -13,7 +13,14 @@ const applySchema = new mongoose.Schema({
   appliedon:{
     type:Date,
     default:Date.now()
+  },
+  similarity:{
+    type:String
+  },
+  status:{
+    type:Boolean
   }
+
 })
 const Apply = mongoose.model('Apply', applySchema);
 

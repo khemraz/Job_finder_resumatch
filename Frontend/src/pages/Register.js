@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { companyRegister } from '../api/companyAPI'
 import Navbar from '../components/Navbar'
 import { userRegister } from '../api/userAPI'
+import image from '../45760194.jpg'
 
 const Register = () => {
   const userReducer=(state,event)=>{
@@ -75,9 +76,11 @@ const showSuccess=()=>{
     <form>
     <div className='text-center'>
     {/* <img className="mb-4" src="../images/logo.png" alt="" width="72" height="57"/> */}
+    <img src={image} style={{height:"50px"}} className="me-2"/>
+    <h1 className="h3 mb-3 fw-normal">REGISTER AS EMPLOYER</h1>
 
     </div>
-      <h1 className="h3 mb-3 fw-normal">REGISTER AS EMPLOYER</h1>
+
       
 
 

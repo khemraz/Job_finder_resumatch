@@ -22,3 +22,15 @@ export const verifyEmail = (token)=>{
     .then(res=>res.json())
     .catch(err=>console.log(err))
 }
+
+export const getCompanyDetails=(id)=>{
+    return fetch(`${API}/getcompanydetails/${id}`,{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json"
+        }
+
+    })
+    .then(response=>{return response.json()})
+    .catch(error=>{return console.log(error)})
+}

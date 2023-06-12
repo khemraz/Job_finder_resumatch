@@ -26,6 +26,7 @@ else{
   return (
     <div>
         <Navbar/>
+        <div className='container'>
         {
          jobs&& jobs.map((job)=>{
             return <Card job={job}></Card>
@@ -33,6 +34,7 @@ else{
         }
         <Link to='/jobpost' className='btn btn-warning m-4'>Post a new job</Link>
         {/* <JobPostingForm/> */}
+        </div>
     </div>
   )
 }

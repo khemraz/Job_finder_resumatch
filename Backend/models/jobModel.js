@@ -4,6 +4,7 @@ const { ObjectId } = mongoose.Schema
 const jobSchema = new mongoose.Schema({
     title:{
         type:String,
+        trim: true
        
     },
     
@@ -30,6 +31,10 @@ const jobSchema = new mongoose.Schema({
     company:{
         type:ObjectId,
         ref:'Company'
+    },
+    status:{
+        type:Boolean
+
     }
     
 
